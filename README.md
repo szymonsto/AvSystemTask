@@ -1,5 +1,5 @@
 # Av System recrutation task
-##Features
+## Features
 
  - application shares information about
  	- current system time
@@ -26,5 +26,6 @@
  
  	cmake . && make && sudo ./anjay-task urn:dev:os:anjay_task try-anjay.avsystem.com:5684 password
  	
-Szymon Stolarski
+ 	
+	###Author: Szymon Stolarski
 

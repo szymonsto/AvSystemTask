@@ -65,21 +65,29 @@ $(function() {
 <div class="title">avst_utils.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//AVSystem task utilities</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef AVST_UTILS_H</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define AVST_UTILS_H</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keywordtype">int</span> avst_get_free_memory(int32_t* memory_free);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordtype">int</span> avst_get_total_memory(int32_t* memory_total);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keywordtype">int</span> avst_get_cpu_temperature(<span class="keywordtype">float</span>* cpu_temp);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//sudo apt install net-tools</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">int</span> avst_get_internet_ip_addr(<span class="keywordtype">char</span>* ip_addr);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;int32_t avst_reboot_device(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif</span></div>
+<a href="avst__utils_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//AVSystem task utilities</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span><span class="preprocessor">#ifndef AVST_UTILS_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define AVST_UTILS_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">int</span> <a class="code" href="avst__utils_8h.html#a48dd6fc819f9978bfc64b237ca4bf81e">avst_get_free_memory</a>(int32_t* memory_free);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">int</span> <a class="code" href="avst__utils_8h.html#a1f36d8bfbb57b47d64490e13962b8fff">avst_get_total_memory</a>(int32_t* memory_total);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">int</span> <a class="code" href="avst__utils_8h.html#aeee9f52e3fefa583e5efdc42a44ba6b6">avst_get_cpu_temperature</a>(<span class="keywordtype">float</span>* cpu_temp);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">int</span> <a class="code" href="avst__utils_8h.html#ac204515f68b00d573ef1c4078e446b8f">avst_get_internet_ip_addr</a>(<span class="keywordtype">char</span>* ip_addr);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">int</span> <a class="code" href="avst__utils_8h.html#a9f158bad2e9ff8ef46c86144bf55ca04">avst_reboot_device</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aavst__utils_8h_html_aeee9f52e3fefa583e5efdc42a44ba6b6"><div class="ttname"><a href="avst__utils_8h.html#aeee9f52e3fefa583e5efdc42a44ba6b6">avst_get_cpu_temperature</a></div><div class="ttdeci">int avst_get_cpu_temperature(float *cpu_temp)</div><div class="ttdef"><b>Definition:</b> <a href="avst__utils_8c_source.html#l00058">avst_utils.c:58</a></div></div>
+<div class="ttc" id="aavst__utils_8h_html_a9f158bad2e9ff8ef46c86144bf55ca04"><div class="ttname"><a href="avst__utils_8h.html#a9f158bad2e9ff8ef46c86144bf55ca04">avst_reboot_device</a></div><div class="ttdeci">int avst_reboot_device(void)</div><div class="ttdef"><b>Definition:</b> <a href="avst__utils_8c_source.html#l00070">avst_utils.c:70</a></div></div>
+<div class="ttc" id="aavst__utils_8h_html_a48dd6fc819f9978bfc64b237ca4bf81e"><div class="ttname"><a href="avst__utils_8h.html#a48dd6fc819f9978bfc64b237ca4bf81e">avst_get_free_memory</a></div><div class="ttdeci">int avst_get_free_memory(int32_t *memory_free)</div><div class="ttdef"><b>Definition:</b> <a href="avst__utils_8c_source.html#l00020">avst_utils.c:20</a></div></div>
+<div class="ttc" id="aavst__utils_8h_html_ac204515f68b00d573ef1c4078e446b8f"><div class="ttname"><a href="avst__utils_8h.html#ac204515f68b00d573ef1c4078e446b8f">avst_get_internet_ip_addr</a></div><div class="ttdeci">int avst_get_internet_ip_addr(char *ip_addr)</div><div class="ttdef"><b>Definition:</b> <a href="avst__utils_8c_source.html#l00076">avst_utils.c:76</a></div></div>
+<div class="ttc" id="aavst__utils_8h_html_a1f36d8bfbb57b47d64490e13962b8fff"><div class="ttname"><a href="avst__utils_8h.html#a1f36d8bfbb57b47d64490e13962b8fff">avst_get_total_memory</a></div><div class="ttdeci">int avst_get_total_memory(int32_t *memory_total)</div><div class="ttdef"><b>Definition:</b> <a href="avst__utils_8c_source.html#l00038">avst_utils.c:38</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

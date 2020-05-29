@@ -65,88 +65,86 @@ $(function() {
 <div class="title">avst_utils.c</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#define _XOPEN_SOURCE 700</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//#include&lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;sys/statvfs.h&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;sys/reboot.h&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include&quot;avst_utils.h&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define BUFFER_SIZE 128</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define _XOPEN_SOURCE 700</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//#include&lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;sys/statvfs.h&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;sys/reboot.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">int</span> avst_get_free_memory(int32_t* memory_free){</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">struct </span>statvfs buf;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include&quot;<a class="code" href="avst__utils_8h.html">avst_utils.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define BUFFER_SIZE 128</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">if</span> (statvfs(<span class="stringliteral">&quot;.&quot;</span>, &amp;buf) == -1){</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        perror(<span class="stringliteral">&quot;statvfs() error&quot;</span>);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment">//check if memory free pointer is not NULL</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        assert(memory_free); </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="comment">// / 1024 in order to return result in kB</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        *memory_free = ((int32_t)buf.f_bavail * buf.f_frsize / 1024);</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="avst__utils_8h.html#a48dd6fc819f9978bfc64b237ca4bf81e">   20</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="avst__utils_8h.html#a48dd6fc819f9978bfc64b237ca4bf81e">avst_get_free_memory</a>(int32_t* memory_free){</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">struct </span>statvfs buf;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">if</span> (statvfs(<span class="stringliteral">&quot;.&quot;</span>, &amp;buf) == -1){</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        perror(<span class="stringliteral">&quot;statvfs() error&quot;</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="comment">//check if memory free pointer is not NULL</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        assert(memory_free); </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> -1;    </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">int</span> avst_get_total_memory(int32_t* memory_total){</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">struct </span>statvfs buf;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="comment">// / 1024 in order to return result in kB</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        *memory_free = ((int32_t)buf.f_bavail * buf.f_frsize / 1024);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> -1;    </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">if</span> (statvfs(<span class="stringliteral">&quot;.&quot;</span>, &amp;buf) == -1){</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        perror(<span class="stringliteral">&quot;statvfs() error&quot;</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">//check if memory total pointer is not NULL</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        assert(memory_total); </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">// / 1024 in order to return result in kB</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        *memory_total = ((int32_t)buf.f_blocks * buf.f_frsize / 1024);</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="avst__utils_8h.html#a1f36d8bfbb57b47d64490e13962b8fff">   38</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="avst__utils_8h.html#a1f36d8bfbb57b47d64490e13962b8fff">avst_get_total_memory</a>(int32_t* memory_total){</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">struct </span>statvfs buf;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span> (statvfs(<span class="stringliteral">&quot;.&quot;</span>, &amp;buf) == -1){</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        perror(<span class="stringliteral">&quot;statvfs() error&quot;</span>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">//check if memory total pointer is not NULL</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        assert(memory_total); </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> -1;    </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">int</span> avst_get_cpu_temperature(<span class="keywordtype">float</span>* cpu_temp){</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">float</span> millideg;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    FILE *thermal;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">int</span> n;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    thermal = fopen(<span class="stringliteral">&quot;/sys/class/thermal/thermal_zone2/temp&quot;</span>,<span class="stringliteral">&quot;r&quot;</span>);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    n = fscanf(thermal,<span class="stringliteral">&quot;%f&quot;</span>,&amp;millideg);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    fclose(thermal);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    *cpu_temp = millideg / 1000;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;int32_t avst_reboot_device(<span class="keywordtype">void</span>){ </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    sync();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    reboot(RB_AUTOBOOT);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">//TODO add finding outgoing interface using route command !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">//route -n get default | grep &#39;interface:&#39; | grep -o &#39;[^ ]*$&#39;</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">int</span> avst_get_internet_ip_addr(<span class="keywordtype">char</span>* ip_addr){<span class="comment">//TODO erase printf [DEBUG]</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">char</span> *cmd = <span class="stringliteral">&quot;ifconfig&quot;</span>, *p1, *p2;      </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">char</span> buf[BUFFER_SIZE];</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    FILE *fp;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">if</span> ((fp = popen(cmd, <span class="stringliteral">&quot;r&quot;</span>)) == NULL) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        printf(<span class="stringliteral">&quot;[DEBUG] Error opening pipe!\n&quot;</span>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">// / 1024 in order to return result in kB</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        *memory_total = ((int32_t)buf.f_blocks * buf.f_frsize / 1024);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> -1;    </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="avst__utils_8h.html#aeee9f52e3fefa583e5efdc42a44ba6b6">   58</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="avst__utils_8h.html#aeee9f52e3fefa583e5efdc42a44ba6b6">avst_get_cpu_temperature</a>(<span class="keywordtype">float</span>* cpu_temp){</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">float</span> millideg;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    FILE *thermal;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">int</span> n;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    thermal = fopen(<span class="stringliteral">&quot;/sys/class/thermal/thermal_zone2/temp&quot;</span>,<span class="stringliteral">&quot;r&quot;</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    n = fscanf(thermal,<span class="stringliteral">&quot;%f&quot;</span>,&amp;millideg);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    fclose(thermal);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    *cpu_temp = millideg / 1000;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="avst__utils_8h.html#a9f158bad2e9ff8ef46c86144bf55ca04">   70</a></span>&#160;int32_t <a class="code" href="avst__utils_8h.html#a9f158bad2e9ff8ef46c86144bf55ca04">avst_reboot_device</a>(<span class="keywordtype">void</span>){ </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    sync();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    reboot(RB_AUTOBOOT);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="avst__utils_8h.html#ac204515f68b00d573ef1c4078e446b8f">   76</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="avst__utils_8h.html#ac204515f68b00d573ef1c4078e446b8f">avst_get_internet_ip_addr</a>(<span class="keywordtype">char</span>* ip_addr){</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">char</span> *cmd = <span class="stringliteral">&quot;ifconfig&quot;</span>, *p1, *p2;      </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">char</span> buf[BUFFER_SIZE];</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    FILE *fp;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">if</span> ((fp = popen(cmd, <span class="stringliteral">&quot;r&quot;</span>)) == NULL) {</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
@@ -169,14 +167,19 @@ $(function() {
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">if</span>(pclose(fp))  {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        printf(<span class="stringliteral">&quot;[DEBUG] Command not found or exited with error status\n&quot;</span>);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aavst__utils_8h_html_aeee9f52e3fefa583e5efdc42a44ba6b6"><div class="ttname"><a href="avst__utils_8h.html#aeee9f52e3fefa583e5efdc42a44ba6b6">avst_get_cpu_temperature</a></div><div class="ttdeci">int avst_get_cpu_temperature(float *cpu_temp)</div><div class="ttdef"><b>Definition:</b> <a href="avst__utils_8c_source.html#l00058">avst_utils.c:58</a></div></div>
+<div class="ttc" id="aavst__utils_8h_html_a9f158bad2e9ff8ef46c86144bf55ca04"><div class="ttname"><a href="avst__utils_8h.html#a9f158bad2e9ff8ef46c86144bf55ca04">avst_reboot_device</a></div><div class="ttdeci">int avst_reboot_device(void)</div><div class="ttdef"><b>Definition:</b> <a href="avst__utils_8c_source.html#l00070">avst_utils.c:70</a></div></div>
+<div class="ttc" id="aavst__utils_8h_html_a48dd6fc819f9978bfc64b237ca4bf81e"><div class="ttname"><a href="avst__utils_8h.html#a48dd6fc819f9978bfc64b237ca4bf81e">avst_get_free_memory</a></div><div class="ttdeci">int avst_get_free_memory(int32_t *memory_free)</div><div class="ttdef"><b>Definition:</b> <a href="avst__utils_8c_source.html#l00020">avst_utils.c:20</a></div></div>
+<div class="ttc" id="aavst__utils_8h_html"><div class="ttname"><a href="avst__utils_8h.html">avst_utils.h</a></div></div>
+<div class="ttc" id="aavst__utils_8h_html_ac204515f68b00d573ef1c4078e446b8f"><div class="ttname"><a href="avst__utils_8h.html#ac204515f68b00d573ef1c4078e446b8f">avst_get_internet_ip_addr</a></div><div class="ttdeci">int avst_get_internet_ip_addr(char *ip_addr)</div><div class="ttdef"><b>Definition:</b> <a href="avst__utils_8c_source.html#l00076">avst_utils.c:76</a></div></div>
+<div class="ttc" id="aavst__utils_8h_html_a1f36d8bfbb57b47d64490e13962b8fff"><div class="ttname"><a href="avst__utils_8h.html#a1f36d8bfbb57b47d64490e13962b8fff">avst_get_total_memory</a></div><div class="ttdeci">int avst_get_total_memory(int32_t *memory_total)</div><div class="ttdef"><b>Definition:</b> <a href="avst__utils_8c_source.html#l00038">avst_utils.c:38</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

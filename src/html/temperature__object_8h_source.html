@@ -65,21 +65,26 @@ $(function() {
 <div class="title">temperature_object.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef TEMPERATURE_OBJECT_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define TEMPERATURE_OBJECT_H</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;anjay/dm.h&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">const</span> anjay_dm_object_def_t **temperature_object_create(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keywordtype">void</span> temperature_object_release(<span class="keyword">const</span> anjay_dm_object_def_t **def);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordtype">void</span> temperature_object_notify(anjay_t *anjay, <span class="keyword">const</span> anjay_dm_object_def_t **def);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">int</span> temp_create(anjay_t* anjay);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif</span></div>
+<a href="temperature__object_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef TEMPERATURE_OBJECT_H</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define TEMPERATURE_OBJECT_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;anjay/dm.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">const</span> anjay_dm_object_def_t **<a class="code" href="temperature__object_8h.html#aebc615f091162ffb89899e94271048c4">temperature_object_create</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="temperature__object_8h.html#a97aa497b50679ac62c3251506f45c507">temperature_object_release</a>(<span class="keyword">const</span> anjay_dm_object_def_t **def);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> <a class="code" href="temperature__object_8h.html#aed5844476613dfb6d0836216c157fed2">temperature_object_notify</a>(anjay_t *anjay, <span class="keyword">const</span> anjay_dm_object_def_t **def);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">int</span> temp_create(anjay_t* anjay);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="atemperature__object_8h_html_a97aa497b50679ac62c3251506f45c507"><div class="ttname"><a href="temperature__object_8h.html#a97aa497b50679ac62c3251506f45c507">temperature_object_release</a></div><div class="ttdeci">void temperature_object_release(const anjay_dm_object_def_t **def)</div><div class="ttdef"><b>Definition:</b> <a href="temperature__object_8c_source.html#l00315">temperature_object.c:315</a></div></div>
+<div class="ttc" id="atemperature__object_8h_html_aed5844476613dfb6d0836216c157fed2"><div class="ttname"><a href="temperature__object_8h.html#aed5844476613dfb6d0836216c157fed2">temperature_object_notify</a></div><div class="ttdeci">void temperature_object_notify(anjay_t *anjay, const anjay_dm_object_def_t **def)</div><div class="ttdef"><b>Definition:</b> <a href="temperature__object_8c_source.html#l00325">temperature_object.c:325</a></div></div>
+<div class="ttc" id="atemperature__object_8h_html_aebc615f091162ffb89899e94271048c4"><div class="ttname"><a href="temperature__object_8h.html#aebc615f091162ffb89899e94271048c4">temperature_object_create</a></div><div class="ttdeci">const anjay_dm_object_def_t ** temperature_object_create(void)</div><div class="ttdef"><b>Definition:</b> <a href="temperature__object_8c_source.html#l00294">temperature_object.c:294</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

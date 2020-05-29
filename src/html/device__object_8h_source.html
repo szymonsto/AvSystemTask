@@ -65,33 +65,39 @@ $(function() {
 <div class="title">device_object.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//TODO error enum</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DEVICE_OBJECT_H</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DEVICE_OBJECT_H</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;anjay/dm.h&gt;</span></div>
+<a href="device__object_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef DEVICE_OBJECT_H</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define DEVICE_OBJECT_H</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    NO_ERROR = 0,</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    LOW_BATTERY_POWER,</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    EXTERNAL_POWER_SUPPLY_OFF,</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    GPS_MODULE_FAILURE,</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    LOW_RECEIVED_SIGNAL_STRENGTH,</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    OUT_OF_MEMORY,</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    SMS_FAILURE,</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    IP_CONNECTIVITY_FAILURE,</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    ERR_PERIPHERAL_MALFUNCTION</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;} error_code_t;   </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">const</span> anjay_dm_object_def_t **device_object_create(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> device_object_release(<span class="keyword">const</span> anjay_dm_object_def_t **def);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> device_object_notify(anjay_t *anjay, <span class="keyword">const</span> anjay_dm_object_def_t **def);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">int</span> device_object_add_error(<span class="keyword">const</span> anjay_dm_object_def_t **def, <span class="keyword">const</span> error_code_t error_code);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif // TIME_OBJECT_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;anjay/dm.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="device__object_8h.html#a7d80c3b410035aed9cd8484552186f92">   10</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    NO_ERROR = 0,</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    LOW_BATTERY_POWER,</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    EXTERNAL_POWER_SUPPLY_OFF,</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    GPS_MODULE_FAILURE,</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    LOW_RECEIVED_SIGNAL_STRENGTH,</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    OUT_OF_MEMORY,</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    SMS_FAILURE,</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    IP_CONNECTIVITY_FAILURE,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    ERR_PERIPHERAL_MALFUNCTION</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;} <a class="code" href="device__object_8h.html#a7d80c3b410035aed9cd8484552186f92">error_code_t</a>;   </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">const</span> anjay_dm_object_def_t **<a class="code" href="device__object_8h.html#a29f54519919c0a66359fe35cab701f47">device_object_create</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">void</span> <a class="code" href="device__object_8h.html#ae5c9b921ac75f87f4e8109928c4a1ef1">device_object_release</a>(<span class="keyword">const</span> anjay_dm_object_def_t **def);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">void</span> <a class="code" href="device__object_8h.html#ab5272bd8161fa60287ad9bee515e2e8e">device_object_notify</a>(anjay_t *anjay, <span class="keyword">const</span> anjay_dm_object_def_t **def);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">int</span> <a class="code" href="device__object_8h.html#a212d2fddd6703b8624f97096cadc5956">device_object_add_error</a>(<span class="keyword">const</span> anjay_dm_object_def_t **def, <span class="keyword">const</span> <a class="code" href="device__object_8h.html#a7d80c3b410035aed9cd8484552186f92">error_code_t</a> error_code);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif // TIME_OBJECT_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="adevice__object_8h_html_a29f54519919c0a66359fe35cab701f47"><div class="ttname"><a href="device__object_8h.html#a29f54519919c0a66359fe35cab701f47">device_object_create</a></div><div class="ttdeci">const anjay_dm_object_def_t ** device_object_create(void)</div><div class="ttdef"><b>Definition:</b> <a href="device__object_8c_source.html#l00613">device_object.c:613</a></div></div>
+<div class="ttc" id="adevice__object_8h_html_ae5c9b921ac75f87f4e8109928c4a1ef1"><div class="ttname"><a href="device__object_8h.html#ae5c9b921ac75f87f4e8109928c4a1ef1">device_object_release</a></div><div class="ttdeci">void device_object_release(const anjay_dm_object_def_t **def)</div><div class="ttdef"><b>Definition:</b> <a href="device__object_8c_source.html#l00634">device_object.c:634</a></div></div>
+<div class="ttc" id="adevice__object_8h_html_ab5272bd8161fa60287ad9bee515e2e8e"><div class="ttname"><a href="device__object_8h.html#ab5272bd8161fa60287ad9bee515e2e8e">device_object_notify</a></div><div class="ttdeci">void device_object_notify(anjay_t *anjay, const anjay_dm_object_def_t **def)</div><div class="ttdef"><b>Definition:</b> <a href="device__object_8c_source.html#l00642">device_object.c:642</a></div></div>
+<div class="ttc" id="adevice__object_8h_html_a7d80c3b410035aed9cd8484552186f92"><div class="ttname"><a href="device__object_8h.html#a7d80c3b410035aed9cd8484552186f92">error_code_t</a></div><div class="ttdeci">error_code_t</div><div class="ttdef"><b>Definition:</b> <a href="device__object_8h_source.html#l00010">device_object.h:10</a></div></div>
+<div class="ttc" id="adevice__object_8h_html_a212d2fddd6703b8624f97096cadc5956"><div class="ttname"><a href="device__object_8h.html#a212d2fddd6703b8624f97096cadc5956">device_object_add_error</a></div><div class="ttdeci">int device_object_add_error(const anjay_dm_object_def_t **def, const error_code_t error_code)</div><div class="ttdef"><b>Definition:</b> <a href="device__object_8c_source.html#l00577">device_object.c:577</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

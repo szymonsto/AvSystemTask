@@ -1,5 +1,7 @@
 /// @file temperature_object.h
-
+/**
+ * Authon: Szymon Stolarski 2020-05-26
+ */
 #ifndef TEMPERATURE_OBJECT_H
 #define TEMPERATURE_OBJECT_H
 

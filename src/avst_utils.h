@@ -1,6 +1,9 @@
 /// @file avst_utils.h
 
 //AVSystem task utilities
+/**
+ * Authon: Szymon Stolarski 2020-05-26
+ */
 
 #ifndef AVST_UTILS_H
 #define AVST_UTILS_H

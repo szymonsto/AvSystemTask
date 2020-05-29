@@ -1,3 +1,6 @@
+/**
+ * Authon: Szymon Stolarski 2020-05-26
+ */
 #define _XOPEN_SOURCE 700
 //#include<stdlib.h>
 #include <stdio.h>
@@ -70,16 +73,13 @@ int32_t avst_reboot_device(void){
     return 0;
 }
 
-//TODO add finding outgoing interface using route command !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//route -n get default | grep 'interface:' | grep -o '[^ ]*$'
-int avst_get_internet_ip_addr(char* ip_addr){//TODO erase printf [DEBUG]
+int avst_get_internet_ip_addr(char* ip_addr){
 
     char *cmd = "ifconfig", *p1, *p2;      
     char buf[BUFFER_SIZE];
     FILE *fp;
 
     if ((fp = popen(cmd, "r")) == NULL) {
-        printf("[DEBUG] Error opening pipe!\n");
         return -1;
     }
 
@@ -102,7 +102,6 @@ int avst_get_internet_ip_addr(char* ip_addr){//TODO erase printf [DEBUG]
     }
 
     if(pclose(fp))  {
-        printf("[DEBUG] Command not found or exited with error status\n");
         return -1;
     }
 

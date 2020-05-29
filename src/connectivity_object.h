@@ -1,5 +1,7 @@
 /// @file connectiity_object.h
-
+/**
+ * Authon: Szymon Stolarski 2020-05-26
+ */
 #ifndef CONNECTIVITY_OBJECT_H
 #define CONNECTIVITY_OBJECT_H
 

@@ -1,5 +1,7 @@
 /// @file device_object.h
-
+/**
+ * Authon: Szymon Stolarski 2020-05-26
+ */
 #ifndef DEVICE_OBJECT_H
 #define DEVICE_OBJECT_H
 

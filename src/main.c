@@ -1,4 +1,7 @@
 /// @file main.c
+/**
+ * Authon: Szymon Stolarski 2020-05-26
+ */
 #include <anjay/anjay.h>
 #include <avsystem/commons/avs_log.h>
 #include <anjay/attr_storage.h>
@@ -86,9 +89,7 @@ static int setup_security_object(anjay_t *anjay, const char* psk_identity, const
         strcat(server_uri, "coaps://");
         strcat(server_uri, server_url);
 
-  //  anjay_security_instance_t = (snja)
 
-   // anjay_security_instance_t security_instance;
      anjay_security_instance_t security_instance = {
             .ssid = 1,
             .server_uri = server_uri,
@@ -161,7 +162,6 @@ int main(int argc, char *argv[])
     const char* password = argv[3];
 
     const anjay_configuration_t CONFIG = {
-        //.endpoint_name = "urn:dev:os:anjay_task",
         .endpoint_name = endpoint_name,
         .in_buffer_size = 4000,
         .out_buffer_size = 4000,

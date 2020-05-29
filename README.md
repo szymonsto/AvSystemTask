@@ -27,5 +27,5 @@
  	cmake . && make && sudo ./anjay-task urn:dev:os:anjay_task try-anjay.avsystem.com:5684 password
  	
  	
-	###Author: Szymon Stolarski
+	### Author: Szymon Stolarski
 
